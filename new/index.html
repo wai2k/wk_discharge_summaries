@@ -36,7 +36,17 @@ body {font-family: Arial, Helvetica, sans-serif; font-size: 12pt; }
 </STYLE>
 <script language="JavaScript" SRC="DischargeLetters.js">
 </script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 
+<script type="text/javascript">
+function limitText(limitField, limitCount, limitNum) {
+    if (limitField.value.length > limitNum) {
+        limitField.value = limitField.value.substring(0, limitNum);
+    } else {
+        limitCount.value = limitNum - limitField.value.length;
+    }
+}
+</script>
 <script type="text/javascript">
 <!--
 function setfocus() {
@@ -376,7 +386,7 @@ function setfocus() {
               <td width="25">&nbsp;</td>
               <td><p><font face="Arial, Helvetica, sans-serif">Principal Diagnosis 
                   this Admission</font><br>
-                  <textarea name="txtAdmission" cols=163 rows=4 tabindex=9 onBlur=checkDemographics() onKeyPress="textCounter(this, this.form.txtCharCount, 945);" style="font-size:12px; font-family: arial, helvetica, sans-serif;"></textarea>
+                  <textarea name="txtAdmission" cols=163 rows=8 tabindex=9 onBlur=checkDemographics() onKeyPress="textCounter(this, this.form.txtCharCount, 945);" style="font-size:12px; font-family: arial, helvetica, sans-serif;"></textarea>
                 </p>
                 </td>
               <td rowspan="9">&nbsp;</td>
@@ -385,17 +395,17 @@ function setfocus() {
               <td>&nbsp;</td>
               <td><font face="Arial, Helvetica, sans-serif">Other Diagnoses & 
                 Complications</font><BR> 
-                <textarea name="txtOtherDiag" cols=163 rows=4 tabindex=10 onKeyPress="textCounter(this, this.form.txtCharCount, 945);" style="font-size:12px; font-family: arial, helvetica, sans-serif;"></textarea></td>
+                <textarea name="txtOtherDiag" cols=163 rows=8 tabindex=10 onKeyPress="textCounter(this, this.form.txtCharCount, 945);" style="font-size:12px; font-family: arial, helvetica, sans-serif;"></textarea></td>
             </tr>
             <tr> 
               <td>&nbsp;</td>
               <td><font face="Arial, Helvetica, sans-serif">Clinical Findings</font><BR> 
-                <textarea name="txtClinical"  cols=163 rows=4 tabindex=11 onKeyPress="textCounter(this, this.form.txtCharCount, 945);" style="font-size:12px; font-family: arial, helvetica, sans-serif;"></textarea></td>
+                <textarea name="txtClinical"  cols=163 rows=8 tabindex=11 onKeyPress="textCounter(this, this.form.txtCharCount, 945);" style="font-size:12px; font-family: arial, helvetica, sans-serif;"></textarea></td>
             </tr>
             <tr> 
               <td>&nbsp;</td>
               <td><font face="Arial, Helvetica, sans-serif">Investigation Results</font><BR> 
-                <textarea name="txtResults" cols=163 rows=4 tabindex=12 onKeyPress="textCounter(this, this.form.txtCharCount, 945);" style="font-size:12px; font-family: arial, helvetica, sans-serif;"></textarea></td>
+                <textarea name="txtResults" cols=163 rows=8 tabindex=12 onKeyPress="textCounter(this, this.form.txtCharCount, 945);" style="font-size:12px; font-family: arial, helvetica, sans-serif;"></textarea></td>
             </tr>
             <tr> 
               <td>&nbsp;</td>
@@ -418,12 +428,14 @@ function setfocus() {
             <tr> 
               <td>&nbsp;</td>
               <td><font face="Arial, Helvetica, sans-serif">Procedures</font><BR> 
-                <textarea name="txtProcedures" cols=163 rows=4 tabindex=13 onKeyPress="textCounter(this, this.form.txtCharCount, 945);" style="font-size:12px; font-family: arial, helvetica, sans-serif;"></textarea></td>
+                <textarea name="txtProcedures" cols=163 rows=8 tabindex=13 onKeyPress="textCounter(this, this.form.txtCharCount, 945);" style="font-size:12px; font-family: arial, helvetica, sans-serif;"></textarea></td>
             </tr>
             <tr> 
               <td>&nbsp;</td>
               <td><font face="Arial, Helvetica, sans-serif">Management &amp; Progress</font><BR> 
-                <textarea name="txtManagement" cols=163 rows=4 id="txtManagement" style="font-size:12px; font-family: arial, helvetica, sans-serif;" tabindex=14 onKeyPress="textCounter(this, this.form.txtCharCount, 945);"></textarea> 
+                <textarea name="limitedtextarea" cols=163 rows=8 id="txtManagement" style="font-size:12px; font-family: arial, helvetica, sans-serif;" tabindex=14 onKeyDown="limitText(this.form.limitedtextarea,this.form.countdown,950);"
+onKeyUp="limitText(this.form.limitedtextarea,this.form.countdown,950);" ></textarea> 
+                <p>Remaining character count:<input readonly type="text" name="countdown" size="3" value="950" readonly="readonly" id="remain"></p>
               </td>
             </tr>
 
@@ -450,7 +462,7 @@ function setfocus() {
             <tr> 
               <td>&nbsp;</td>
               <td><span id="fm10">Future Management (including follow-up and pending results)</span><BR>
-                <textarea name="txtFutureMgt" cols=163 rows=4 tabindex=15 onKeyPress="textCounter(this, this.form.txtCharCount, 945);" style="font-size:12px; font-family: arial, helvetica, sans-serif;"></textarea></td>
+                <textarea name="txtFutureMgt" cols=163 rows=8 tabindex=15 onKeyPress="textCounter(this, this.form.txtCharCount, 945);" style="font-size:12px; font-family: arial, helvetica, sans-serif;"></textarea></td>
             </tr>
 
             <tr>
